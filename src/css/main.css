@@ -7,14 +7,23 @@
   display: flex;
   justify-content: center; }
 
-.controls-button {
+.controls-button-new,
+.controls-button-request,
+.controls-button-stop {
   padding: 10px;
   border-radius: 57px;
-  background-color: red;
-  color: #fff;
+  background-color: green;
+  color: #000;
   margin: 0 10px;
   font-size: 13px;
+  outline: none;
   cursor: pointer; }
+
+.controls-button-request {
+  background-color: yellow; }
+
+.controls-button-stop {
+  background-color: red; }
 
 .user-cards,
 .machine-cards {
