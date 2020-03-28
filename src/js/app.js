@@ -1,8 +1,4 @@
-const underscore = require("underscore");
 
-console.log({underscore})
-
-console.log(under)
 let deck=[]
 const types=["C","D","H","S"];
 const typesEspecial = ["A", "J", "Q", "K"];
@@ -20,5 +16,8 @@ const createDeck=()=>{
     }
     
 console.log(deck)
+deck=_.shuffle(deck)
+console.log(deck)
+return deck;
 }
 createDeck()
