@@ -1,0 +1,17 @@
+{
+  "name": "js-esnext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass -w src/scss/ -o src/css",
+    "dev": "nodemon src/js/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "underscore": "^1.9.2"
+  }
+}

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    &-button {
+        padding: 10px;
+        border-radius: 57px;
+        background-color: red;
+        color: #fff;
+        margin: 0 10px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+}
+
+.user-cards {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+
+    &-img {
+        width: 10%;
+        display: block;
+        -webkit-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
+        -moz-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
+        box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
+        margin-left: -132px;
+    }
+}
+.machine-cards {
+    @extend .user-cards;
+    &-img {
+        @extend .user-cards-img;
+    }
+}
