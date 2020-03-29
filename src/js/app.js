@@ -4,24 +4,63 @@ let deck = [];
 const types = ["C", "D", "H", "S"];
 const typesEspecial = ["A", "J", "Q", "K"];
 
-let pointUser = 0;
-let pointComputer = 0;
+// let pointUser = 0;
+// let pointComputer = 0;
+
+let puntosJugadores=[];
 
 const buttonNew = document.querySelector(".controls-button-new");
 const buttonRequest = document.querySelector(".controls-button-request");
 const buttonStop = document.querySelector(".controls-button-stop");
-
-const pointsGame = document.querySelectorAll("small");
-
-const divUserCard = document.querySelector(".user-cards");
-const divComputerCard = document.querySelector(".computer-cards");
+const pointsGame = document.querySelectorAll("small")
 const divMessage=document.querySelector(".message");
 
+const divCardsGamers = document.querySelectorAll(".user-cards");
 
-const initialDeckGame=()=>{
+const initialDeckGame=(numeroJugadores=2)=>{
   deck=createDeck();
+  puntosJugadores=[]
+  for (let i = 0; i < numeroJugadores; i++) {
+   puntosJugadores.push(0)
+  }
+      pointsGame.forEach(elem=>elem.innerText=0);
+      divCardsGamers.forEach(elem=>elem.innerHTML="");
+      
+      buttonRequest.disabled=false;
+      buttonStop.disabled=false;
+}
+const acumularPuntos = (card,turno) => {
+      puntosJugadores[turno] = puntosJugadores[turno] + valueCard(card);
+      pointsGame[turno].innerText = puntosJugadores[turno];
+      return puntosJugadores[turno];
 }
 
+const crearCartasJugadores=(card,turno)=>{
+  const imgCard = document.createElement("img");
+      imgCard.src = `img/cartas/${card}.png`;
+      imgCard.classList.add("user-cards-img");
+      divCardsGamers[turno].append(imgCard)
+}
+
+const determinarGanador=()=>{
+  
+  const [pointMin, pointComputer]=puntosJugadores
+    setTimeout(() => {
+      const itemText = document.createElement("h4");
+      itemText.classList.add("message_text");
+      divMessage.append(itemText);
+      if (pointComputer === pointMin) {
+        itemText.innerText = "NADIE GANA"
+      } else if (pointMin > 21) {
+        itemText.innerText = "GANA COMPUTADORA"
+      } else if (pointComputer > 21) {
+        itemText.innerText = "GANA JUGADOR"
+      } else {
+        itemText.innerText = "GANA COMPUTADORA"
+      }
+    }, 10);
+}
+//////////////////////////////
 const createDeck = () => {
   for (let i = 2; i <= 10; i++) {
     for (const type of types) {
@@ -50,48 +89,21 @@ const valueCard = card => {
 };
 
 const pointComputerGame = pointMin => {
+  let pointComputer = 0;
   do {
     const card = requestCard();
-    pointComputer = pointComputer + valueCard(card);
-    pointsGame[1].innerText = pointComputer;
-
-    const imgCard = document.createElement("img");
-    imgCard.src = `img/cartas/${card}.png`;
-    imgCard.classList.add("user-cards-img");
-    divComputerCard.append(imgCard);
-
-    if (pointMin > 21) {
-      break;
-    }
+   pointComputer=acumularPuntos(card, puntosJugadores.length - 1);
+   crearCartasJugadores(card,puntosJugadores.length-1)
   } while (pointComputer < pointMin && pointMin <= 21);
-  setTimeout(() => {
-        const itemText = document.createElement("h4");
-                itemText.classList.add("message_text");
-                divMessage.append(itemText);
-        if (pointComputer === pointMin) {
-            itemText.innerText="NADIE GANA"
-        } else if (pointMin > 21) {
-              itemText.innerText = "GANA COMPUTADORA"
-        } else if (pointComputer > 21) {
-             itemText.innerText = "GANA JUGADOR"
-        }else{
-              itemText.innerText = "GANA COMPUTADORA"
-        }
-  },10);
+determinarGanador();
    
 };
 
 /////////EVENTOS
 buttonRequest.addEventListener("click", () => {
   const card = requestCard();
-  pointUser = pointUser + valueCard(card);
-  pointsGame[0].innerText = pointUser;
-
-  const imgCard = document.createElement("img");
-  imgCard.src = `img/cartas/${card}.png`;
-  imgCard.classList.add("user-cards-img");
-  divUserCard.append(imgCard);
-
+  pointUser = acumularPuntos(card, 0);
+  crearCartasJugadores(card,0)
   if (pointUser > 21) {
     console.warn("sorry your Lost");
     buttonRequest.disabled = true;
@@ -112,16 +124,6 @@ buttonStop.addEventListener("click", () => {
 });
 
 buttonNew.addEventListener("click",()=>{
-    // deck=createDeck();
-    // deck=[];
     initialDeckGame();
-    pointUser=0;
-    pointComputer=0;
-    pointsGame[0].innerText=0;
-    pointsGame[1].innerText=0;
-    divComputerCard.innerHTML="";
-    divUserCard.innerHTML="";
-    buttonRequest.disabled=false;
-    buttonStop.disabled=false;
-    console.clear()
+
 })
