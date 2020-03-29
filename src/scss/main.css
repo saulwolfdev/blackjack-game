@@ -2,17 +2,20 @@
   margin: 0;
   border: 0;
   padding: 0;
+  font-family: "Fira Sans", sans-serif;
 }
 .controls {
   display: flex;
+  margin-top: 54px;
   justify-content: center;
+  align-items: center;
 }
 .controls-button-new,
 .controls-button-request,
 .controls-button-stop {
   padding: 10px;
   border-radius: 57px;
-  background-color: green;
+  background-color: #dbdbdb;
   color: #000;
   margin: 0 10px;
   font-size: 13px;
@@ -20,24 +23,63 @@
   cursor: pointer;
 }
 .controls-button-request {
-  background-color: yellow;
+  background-color: #dbdbdb;
 }
 .controls-button-stop {
-  background-color: red;
+  background-color: #dbdbdb;
+}
+.controls-button-lost {
+  opacity: 0.7;
 }
 .user-cards,
-.machine-cards {
+.computer-cards {
   display: flex;
   justify-content: center;
-  background-color: aqua;
+  -webkit-box-shadow: -8px 10px 5px 0px #ededed;
+  -moz-box-shadow: -8px 10px 5px 0px #ededed;
+  box-shadow: -8px 10px 5px 0px #ededed;
   padding: 20px;
 }
 .user-cards-img,
-.machine-cards-img {
-  width: 10%;
+.computer-cards-img {
+  width: 20%;
   display: block;
   -webkit-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
   -moz-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
   box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
-  margin-left: -132px;
+  margin-left: -100px;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px;
+}
+.main_container {
+  width: 100%;
+  margin: 0 10px;
+}
+h1 {
+  font-weight: 200;
+  font-size: 69px;
+}
+.pointsGame {
+  margin: 1px 10px;
+  font-size: 28px;
+  font-weight: 900;
+}
+h2 {
+  font-size: 29px;
+  font-weight: 300;
+}
+.message {
+  text-align: center;
+  padding-top: 40px;
+}
+.message_text {
+  text-align: center;
+  padding: 42px;
+  font-size: 33px;
+  font-weight: 600;
 }
