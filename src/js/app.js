@@ -1,3 +1,4 @@
+// const _ = require("underscore");
 
 let deck = [];
 const types = ["C", "D", "H", "S"];
@@ -15,6 +16,12 @@ const pointsGame = document.querySelectorAll("small");
 const divUserCard = document.querySelector(".user-cards");
 const divComputerCard = document.querySelector(".computer-cards");
 const divMessage=document.querySelector(".message");
+
+
+const initialDeckGame=()=>{
+  deck=createDeck();
+}
+
 const createDeck = () => {
   for (let i = 2; i <= 10; i++) {
     for (const type of types) {
@@ -26,26 +33,21 @@ const createDeck = () => {
       deck.push(especial + type);
     }
   }
-  deck = _.shuffle(deck);
-  return deck;
+  return _.shuffle(deck);
 };
-createDeck();
+
 
 const requestCard = () => {
   if (deck.length === 0) {
     throw "NO hay carta";
   }
-  const card = deck.pop();
-  return card;
+  return deck.pop();
 };
-requestCard();
 
 const valueCard = card => {
   const value = card.substring(0, card.length - 1);
   return isNaN(value) ? (value === "A" ? 11 : 10) : value * 1;
 };
-
-const value = valueCard(requestCard());
 
 const pointComputerGame = pointMin => {
   do {
@@ -79,6 +81,7 @@ const pointComputerGame = pointMin => {
    
 };
 
+/////////EVENTOS
 buttonRequest.addEventListener("click", () => {
   const card = requestCard();
   pointUser = pointUser + valueCard(card);
@@ -90,11 +93,13 @@ buttonRequest.addEventListener("click", () => {
   divUserCard.append(imgCard);
 
   if (pointUser > 21) {
+    console.warn("sorry your Lost");
     buttonRequest.disabled = true;
     buttonStop.disabled = true;
     buttonRequest.classList.add("controls-button-lost");
     pointComputerGame(pointUser);
   } else if (pointUser === 21) {
+    console.warn("Yeah your Winner");
     buttonRequest.disabled = true;
     buttonStop.disabled = true;
     pointComputerGame(pointUser);
@@ -107,8 +112,9 @@ buttonStop.addEventListener("click", () => {
 });
 
 buttonNew.addEventListener("click",()=>{
-    deck=createDeck();
-    deck=[];
+    // deck=createDeck();
+    // deck=[];
+    initialDeckGame();
     pointUser=0;
     pointComputer=0;
     pointsGame[0].innerText=0;

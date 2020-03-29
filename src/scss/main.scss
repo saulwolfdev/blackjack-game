@@ -5,7 +5,6 @@
     font-family: 'Fira Sans', sans-serif;
 }
 
-
 .controls {
     display: flex;
     margin-top: 54px;
@@ -41,17 +40,13 @@
 .user-cards {
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 380px;
     -webkit-box-shadow: -8px 10px 5px 0px rgba(237, 237, 237, 1);
     -moz-box-shadow: -8px 10px 5px 0px rgba(237, 237, 237, 1);
     box-shadow: -8px 10px 5px 0px rgba(237, 237, 237, 1);
     padding: 20px;
-    background-color: #f1f1f1;
 
     &-img {
-        width: 26%;
+        width: 20%;
         display: block;
         -webkit-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
         -moz-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
@@ -73,15 +68,13 @@
     justify-content: center;
     width: 80%;
     margin: 0 auto;
+    padding: 30px;
+
     &_container {
         width: 100%;
         margin: 0 10px;
 
     }
-
-    // @media (min-width: 800px) {
-    //    width: 100%;
-    // }
 }
 
 h1 {
@@ -103,11 +96,10 @@ h2 {
 .message {
     text-align: center;
     padding-top: 40px;
-
     &_text {
         text-align: center;
+        padding: 42px;
         font-size: 33px;
-        font-weight: 500;
+        font-weight: 600;
     }
-
 }

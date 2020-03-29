@@ -35,18 +35,14 @@
 .computer-cards {
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  height: 380px;
   -webkit-box-shadow: -8px 10px 5px 0px #ededed;
   -moz-box-shadow: -8px 10px 5px 0px #ededed;
   box-shadow: -8px 10px 5px 0px #ededed;
-  padding: 20px;
-  background-color: #f1f1f1; }
+  padding: 20px; }
 
 .user-cards-img,
 .computer-cards-img {
-  width: 26%;
+  width: 20%;
   display: block;
   -webkit-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
   -moz-box-shadow: -2px 2px 5px 0px rgba(224, 224, 224, 0.71);
@@ -57,7 +53,8 @@
   display: flex;
   justify-content: center;
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 30px; }
 
 .main_container {
   width: 100%;
@@ -82,5 +79,6 @@ h2 {
 
 .message_text {
   text-align: center;
+  padding: 42px;
   font-size: 33px;
-  font-weight: 500; }
+  font-weight: 600; }
