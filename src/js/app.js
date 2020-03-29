@@ -1,3 +1,4 @@
+
 let deck = [];
 const types = ["C", "D", "H", "S"];
 const typesEspecial = ["A", "J", "Q", "K"];
