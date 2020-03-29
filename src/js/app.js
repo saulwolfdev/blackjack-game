@@ -1,5 +1,3 @@
-// const _ = require("underscore");
-
 let deck = [];
 const types = ["C", "D", "H", "S"];
 const typesEspecial = ["A", "J", "Q", "K"];
@@ -80,7 +78,6 @@ const pointComputerGame = pointMin => {
    
 };
 
-/////////EVENTOS
 buttonRequest.addEventListener("click", () => {
   const card = requestCard();
   pointUser = pointUser + valueCard(card);
@@ -92,13 +89,11 @@ buttonRequest.addEventListener("click", () => {
   divUserCard.append(imgCard);
 
   if (pointUser > 21) {
-    console.warn("sorry your Lost");
     buttonRequest.disabled = true;
     buttonStop.disabled = true;
     buttonRequest.classList.add("controls-button-lost");
     pointComputerGame(pointUser);
   } else if (pointUser === 21) {
-    console.warn("Yeah your Winner");
     buttonRequest.disabled = true;
     buttonStop.disabled = true;
     pointComputerGame(pointUser);
