@@ -12,6 +12,6 @@
   "dependencies": {
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   }
 }
